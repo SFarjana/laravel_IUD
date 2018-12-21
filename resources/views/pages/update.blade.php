@@ -1,22 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Dashboard</title>
-	<link href="css/bootstrap.css" rel="stylesheet"><!-- bootstrap css -->
-</head>
-<body>
-	<div class="container">
-		<h1>Dashboard</h1>
-		@if(session('success'))
-        <div class="alert alert-success">
-          {{ session('success') }}
-        </div> 
-        @endif
-        @if(session('error'))
-        <div class="alert alert-danger">
-          {{ session('error') }}
-        </div> 
-        @endif
+@extends('default')
+@section('content')
+	
 <form action="{{ URL::to('/update/'.$updata->id) }}" method="post">
 	{{ csrf_field() }}
 	<div class="input-group" style="margin: 15px 0 15px 0;">
@@ -31,6 +15,4 @@
 		<button style="margin-left: 15px;" type="submit" class="btn btn-success" href="">Update</button>
 	</div>
 </form>
-	</div>
-</body>
-</html>
+@stop

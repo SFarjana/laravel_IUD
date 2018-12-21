@@ -1,38 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Dashboard</title>
-	<link href="css/bootstrap.css" rel="stylesheet"><!-- bootstrap css -->
-
-	<script src="js/jquery.min.js"></script><!-- jquery.min js -->
-	<script src="js/popper.min.js"></script> <!-- popper.min js -->
-	<script src="js/bootstrap.min.js"></script><!-- bootstrap.min js -->
-</head>
-<body>
-	<div class="container">
-		<h1>Dashboard</h1>
-		@if(session('success'))
-        <div class="alert alert-success">
-          {{ session('success') }}
-        </div> 
-        @endif
-        @if(session('error'))
-        <div class="alert alert-danger">
-          {{ session('error') }}
-        </div> 
-        @endif
-
+@extends('default')
+@section('content')
 <form action="{{ URL::to('insert') }}" method="post">
 	{{ csrf_field() }}
+	<a style="float: right;"  class="btn btn-danger" href="{{ URL::to('logout') }}">Logout</a>
 	<div class="input-group" style="margin: 15px 0 15px 0;">
 		<div class="input-group-prepend">
 		    <span class="input-group-text" id="">Name</span>
 		</div>
-		<input class="form-control col-md-2" required="required" type="text" name="name" placeholder="Name" size="15">
+		<input class="form-control col-md-2" type="text" name="name" placeholder="Name" size="15">
 		<div class="input-group-prepend">
 		    <span style="margin-left: 15px;" class="input-group-text" id="">Address</span>
 		</div>
-		<input class="form-control col-md-5" type="text" name="address" placeholder="Address" size="33" required="required">
+		<input class="form-control col-md-5" type="text" name="address" placeholder="Address" size="33">
 		<button style="margin-left: 15px;" type="submit" class="btn btn-success" href="">Insert</button>
 	</div>
 		<table class="table">
@@ -78,6 +57,4 @@
 		  </tbody>
 		</table>
 </form>
-	</div>
-</body>
-</html>
+@stop
