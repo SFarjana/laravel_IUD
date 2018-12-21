@@ -46,7 +46,7 @@
         </div>
         <button type="submit" class="btn btn-primary">Register</button>
     </form>
-    <p style="color: black;" class="botto-text">Already have an account? <a href="{{ URL::to('login') }}">Login Now</a></p>
+    <p style="color: #444444;" class="botto-text">Already have an account? <a href="{{ URL::to('login') }}">Login Now</a></p>
     </div>
 </div>
 </div>

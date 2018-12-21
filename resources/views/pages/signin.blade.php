@@ -43,7 +43,7 @@
         </div>
         <button type="submit" class="btn btn-primary">Login</button>
     </form>
-    <p style="color: black;" class="botto-text"> Don't have an account? <a href="{{ URL::to('register') }}">Register Now</a></p>
+    <p style="color: #444444;" class="botto-text"> Don't have an account? <a href="{{ URL::to('register') }}">Register Now</a></p>
     </div>
 </div>
 </div>

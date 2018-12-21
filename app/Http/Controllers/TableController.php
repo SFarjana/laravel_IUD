@@ -17,8 +17,12 @@ class TableController extends Controller
         }
 	}
     public function user(){
+        if(Session::has('role')){
+            return redirect('login');
+        }else{
         $obj = Info::all();
         return view('pages.list')->with(compact('obj'));
+        }
     }
     public function insert(Request $req){
 
