@@ -22,9 +22,6 @@ Route::get('register','UserController@register');
 
 Route::group(['middleware' => 'checkloggedin'], function(){
 
-
-
-
 Route::get('logout', 'UserController@logout');
 Route::get('/w', 'TableController@home');
 Route::get('/user', 'TableController@user');

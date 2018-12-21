@@ -15,9 +15,7 @@ class Isloggedin
      */
     public function handle($request, Closure $next)
     {
-        if(Session::has('userid')){
-            return redirect('/w');
-        }else{
+        if(!Session::has('userid')){
             return redirect('login');
         }
         return $next($request);

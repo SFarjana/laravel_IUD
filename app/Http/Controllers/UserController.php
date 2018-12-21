@@ -13,11 +13,26 @@ class UserController extends Controller
 		return redirect('login');
 	}
 	public function login(){
+		if(!Session::has('userid')){
             return view('pages.signin');
-		
+        }else{
+        	if(Session::has('role')){
+        		return redirect('/w');
+        	}else{
+        		return redirect('user');
+        	}
+        }
 	}
 	public function register(){
+        if(!Session::has('userid')){
             return view('pages.signup');
+        }else{
+        	if(Session::has('role')){
+        		return redirect('/w');
+        	}else{
+        		return redirect('user');
+        	}
+        }
 	}
 
     public function registerstore(Request $req){
@@ -52,6 +67,7 @@ class UserController extends Controller
       if($user){
 	      if($user->role=='0'){
 	        Session::put('userid',$user->id);
+	        Session::put('role',$user->role);
 	        return redirect('/w')->with('success','Successfully Logged In');
 	      }
 	      else {

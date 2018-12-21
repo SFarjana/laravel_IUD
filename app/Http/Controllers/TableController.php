@@ -4,12 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Info;
+use Session;
 
 class TableController extends Controller
 {
 	public function home(){
+        if(!Session::has('role')){
+            return redirect('login');
+        }else{
 		$obj = Info::all();
 		return view('pages.dashboard')->with(compact('obj'));
+        }
 	}
     public function user(){
         $obj = Info::all();
